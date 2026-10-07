@@ -16,12 +16,31 @@ Text that looks identical can be encoded differently. Hidden formatting marks ca
 
 It is an inspection aid, not a complete Unicode security scanner. It does not assign every official Unicode character name or determine whether a string is safe.
 
+## Download
+
+Clone the repository on Linux, macOS, or Windows:
+
+```bash
+git clone https://github.com/KamiBuilds/unicode-codepoint-inspector.git
+cd unicode-codepoint-inspector
+```
+
+You can also use GitHub's **Code → Download ZIP** option, but cloning makes future updates available through `git pull`.
+
 ## Run locally
 
 Requirements: a modern browser and Python 3 (or any static file server).
 
+Linux/macOS:
+
 ```bash
 python3 -m http.server 8000
+```
+
+Windows PowerShell:
+
+```powershell
+py -m http.server 8000
 ```
 
 Open <http://localhost:8000>, paste text, or select one of the built-in examples.
