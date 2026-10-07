@@ -1,0 +1,14 @@
+{
+  "name": "unicode-codepoint-inspector",
+  "version": "1.0.0",
+  "description": "Inspect Unicode code points, grapheme clusters, and invisible characters in a browser.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/inspect.js && node --check src/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="Inspect Unicode code points, grapheme clusters, and hidden characters locally in your browser.">
+  <title>Unicode Codepoint Inspector</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">LOCAL-ONLY TEXT LAB</p>
+      <h1>Unicode <span>Codepoint</span> Inspector</h1>
+      <p>Expose invisible characters, compare browser graphemes with code points, and inspect UTF-16 length. Nothing leaves your browser.</p>
+    </header>
+
+    <section class="panel input-panel" aria-labelledby="input-heading">
+      <div class="section-heading">
+        <div>
+          <p class="step">STEP 01</p>
+          <h2 id="input-heading">Paste or type text</h2>
+        </div>
+        <div class="samples" aria-label="Example texts">
+          <button type="button" data-sample="Café é">Combining mark</button>
+          <button type="button" data-sample="👨‍👩‍👧‍👦">Emoji sequence</button>
+          <button type="button" data-sample="alpha​beta">Hidden space</button>
+        </div>
+      </div>
+      <label class="sr-only" for="text-input">Text to inspect</label>
+      <textarea id="text-input" rows="6" spellcheck="false" placeholder="Paste suspicious or multilingual text here…">Hello, 世界 👋</textarea>
+    </section>
+
+    <section class="stats" aria-label="Text statistics" aria-live="polite">
+      <article><strong id="grapheme-count">0</strong><span>Graphemes</span></article>
+      <article><strong id="codepoint-count">0</strong><span>Code points</span></article>
+      <article><strong id="unit-count">0</strong><span>UTF-16 units</span></article>
+      <article class="warning-stat"><strong id="hidden-count">0</strong><span>Hidden / space</span></article>
+    </section>
+
+    <section class="panel results" aria-labelledby="results-heading">
+      <div class="section-heading">
+        <div>
+          <p class="step">STEP 02</p>
+          <h2 id="results-heading">Character breakdown</h2>
+        </div>
+        <p class="legend"><span></span> Invisible or whitespace</p>
+      </div>
+      <p id="empty-state" hidden>No code points to inspect.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">#</th><th scope="col">Character</th><th scope="col">Code point</th><th scope="col">Classification</th></tr></thead>
+          <tbody id="codepoint-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer>Runs entirely in your browser · No analytics · No uploads</footer>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
